@@ -1,0 +1,16 @@
+import fetch from 'node-fetch';
+
+console.log('Scraper iniciado');
+
+const payload = {
+  platform: 'test',
+  message: 'Hola desde el scraper'
+};
+
+await fetch(process.env.N8N_WEBHOOK_URL, {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify(payload)
+});
+
+console.log('Datos enviados al webhook');
